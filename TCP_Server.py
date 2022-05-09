@@ -3,14 +3,17 @@ import sys
 
 # Membuat TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 # Menggabungkan socket dengan address
 server_address = ('localhost', 10010)
 print >>sys.stderr, 'starting up on %s port %s' % server_address
 sock.bind(server_address)
+
 # Mencari Client dengan address yang sama
 sock.listen(1)
 
 while True:
+    
     # Menunggu koneksi dari Client
     print >>sys.stderr, 'waiting for a connection'
     connection, client_address = sock.accept()
