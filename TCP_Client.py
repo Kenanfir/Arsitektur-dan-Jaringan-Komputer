@@ -8,14 +8,13 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 10010)
 print >>sys.stderr, 'connecting to %s port %s' % server_address
 sock.connect(server_address)
-
 try:
     
     # Mengirim data ke server
     message = 'New Message'
     print >>sys.stderr, 'sending "%s"' % message
     sock.sendall(message)
-
+    
     # Mencari respon dari server
     amount_received = 0
     amount_expected = len(message)
